@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Pass data</title>
+    </head>
+    <body>
+
+        <form id="user-form" th:action="@{/pass-data}" method="post" th:object="${user}">
+            <p>Name :    <input type="text" name="name"></p>
+            <p>Surname : <input type="text" name="surname"></p>
+            <p>Years :   <input type="number" name="years"></p>
+            <input type="submit" value="Pass data">
+        </form>
+        <br/>
+        <br/>
+        <br/>
+        This view has name pass-data.
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees</title>
+</head>
+<body>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 5px;
+    }
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+<h1>Employees table : </h1>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="employees" type="java.util.ArrayList<com.itvdn.persistence.model.Employee>"*/-->
+    <tr th:each="employee, status : ${employees}">
+            <td th:text="${status.index + 1}"></td>
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.position}"></td>
+            <td th:text="${employee.phone}"></td>
+            <td><a th:href="@{'/employee/remove/' + ${employee.id}}">Remove</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<br/>
+<h2>To add new employee press "Add employee" button</h2>
+<form method="post" th:action="@{/employee/add}">
+    <p><label for="name">Employee name </label></p>
+    <p><input type="text" name="name" id="name"></p>
+    <br/>
+
+    <p><label for="position">Employee position </label></p>
+    <p><input type="text" name="position" id="position"></p>
+    <br/>
+
+    <p><label for="phone">Employee phone </label></p>
+    <p><input type="text" name="phone" id="phone"></p>
+    <p><input type="submit" value="Add employee"></p>
+</form>
+<br/>
+<br/>
+<form method="post" th:action="@{/employee/findByName}">
+    <h2>Search employee by name</h2>
+    <p>Name : </p>
+    <p><input name="name" type="text"></p>
+    <p><input type="submit" value="Search by name"></p>
+</form>
+</body>
+</html>

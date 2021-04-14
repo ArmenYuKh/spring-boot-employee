@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Employee search result</title>
+</head>
+<body>
+    <h1>List of employee : </h1>
+
+    <!--/*@thymesVar id="employees" type="java.util.ArrayList<com.itvdn.persistence.model.Employee>"*/-->
+    <div th:each="employee, status : ${employees}" th:text="${employee}">
+        <h2 th:text="${status.index + 1}">Result </h2>
+    </div>
+</body>
+</html>

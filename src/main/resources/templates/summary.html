@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Summary</title>
+</head>
+<body>
+<!--/*@thymesVar id="user" type="com.itvdn.model.User"*/-->
+<h2 th:text="${user.name}">User name : </h2>
+<h2 th:text="${user.surname}">User surname : </h2>
+<h2 th:text="${user.years}">User years : </h2>
+
+<br/>
+<br/>
+<br/>
+This view has name summary.
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<h2>Hello, ITVDN!</h2>
+<br/>
+<br/>
+<br/>
+This view has name index.
+<br/>
+<h1 sec:authorize="hasRole('ROLE_ADMIN')">
+    Only admin can see this header :)
+</h1>
+
+
+<h2 sec:authorize="isAuthenticated()" th:text="${'Hello, ' + #authentication.name}">
+</h2>
+
+    <h1 sec:authorize="isAuthenticated()">Another header for authenticated user!!!</h1>
+    <h3 sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></h3>
+    <p  sec:authorize="isAuthenticated()"th:text="${#authentication.details}"></p>
+    <p  sec:authorize="isAuthenticated()" th:text="${#authentication.principal}"></p>
+</body>
+</html>
